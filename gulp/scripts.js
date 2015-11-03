@@ -14,23 +14,14 @@ var $ = require('gulp-load-plugins')();
   });
 
   gulp.task('scripts', ['tsd:install'], function () {
-  return gulp.src(path.join(conf.paths.src, '/app/**/*.ts'))
+  return gulp.src(path.join(conf.paths.src, '/app/**/*.ts')),
+    gulp.src(path.join(conf.paths.src, '/app/**/*.js'))
     .pipe($.sourcemaps.init())
     .pipe($.tslint())
     .pipe($.tslint.report('prose', { emitError: false }))
     .pipe($.typescript(tsProject)).on('error', conf.errorHandler('TypeScript'))
     .pipe($.concat('index.module.js'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')))
-    .pipe(browserSync.reload({ stream: true }))
-    .pipe($.size())
-});
-
-  gulp.task('TypeScript', [], function () {
-  return gulp.src(path.join(conf.paths.src, '/app/**/*.ts'))
-    .pipe($.sourcemaps.init())
-    .pipe($.tslint())
-    .pipe($.tslint.report('prose', { emitError: false }))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')))
     .pipe(browserSync.reload({ stream: true }))
     .pipe($.size())
