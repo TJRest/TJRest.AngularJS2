@@ -26,8 +26,7 @@ gulp.task('watch', ['markups', 'inject'], function () {
   });
 
   gulp.watch([
-    path.join(conf.paths.src, '/app/**/*.js'),
-    path.join(conf.paths.src, '/app/**/*.ts')
+    path.join(conf.paths.src, '/app/**/*.js')
   ], function(event) {
     if(isOnlyChange(event)) {
       gulp.start('scripts');
@@ -35,6 +34,13 @@ gulp.task('watch', ['markups', 'inject'], function () {
       gulp.start('inject');
     }
   });
+
+  gulp.watch([
+    path.join(conf.paths.src, '/app/**/*.ts')
+  ], function(event) {
+    gulp.start('TypeScript')
+  });
+
 
   gulp.watch(path.join(conf.paths.src, '/app/**/*.jade'), ['markups']);
 

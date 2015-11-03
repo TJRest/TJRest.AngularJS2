@@ -25,3 +25,13 @@ var $ = require('gulp-load-plugins')();
     .pipe(browserSync.reload({ stream: true }))
     .pipe($.size())
 });
+
+  gulp.task('TypeScript', [], function () {
+  return gulp.src(path.join(conf.paths.src, '/app/**/*.ts'))
+    .pipe($.sourcemaps.init())
+    .pipe($.tslint())
+    .pipe($.tslint.report('prose', { emitError: false }))
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')))
+    .pipe(browserSync.reload({ stream: true }))
+    .pipe($.size())
+});
