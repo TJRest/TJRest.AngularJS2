@@ -38,10 +38,12 @@
 
 
     <script>
-    System.config({
-        packages: {'app': {defaultExtension: 'ts'}}
-    });
-    System.import('app/app');
+      System.config({
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true }
+      });
+      System.import('./app/components/Hero.ts');
+      System.import('./app/app.ts');
     </script>
   </head>
   <body>
