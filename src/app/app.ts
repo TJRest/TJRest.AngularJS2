@@ -1,22 +1,18 @@
-import {bootstrap, Component, FORM_DIRECTIVES} from 'angular2/angular2';
-class Hero {
-  id: number;
-  name: string;
-}
+import {
+    bootstrap,
+    Component,
+    FORM_DIRECTIVES,
+    NgFor,
+    NgIf
+} from 'angular2/angular2';
+
+import hero = require('/app/classes/CHero');
+
 @Component({
-  selector: 'my-app',
-  templateUrl:'app/template.html',
-  directives: [FORM_DIRECTIVES]
+    selector: 'my-app',
+    templateUrl:'app/template.html',
+    directives: [FORM_DIRECTIVES, NgFor, NgIf]
 })
 class AppComponent {
-  public title = 'Tour of Heroes';
-  public hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
-
-  public save = function(){
-      alert(Hero.name + " saved!");
-  }
 }
 bootstrap(AppComponent);
