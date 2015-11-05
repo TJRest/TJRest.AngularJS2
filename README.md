@@ -53,7 +53,7 @@ cd TJRest.AngularJS2
 4.Install the gulp dependencies
 
 ```
-sudo npm install
+ npm install
 ```
 
 5.Install the bower dependencies
@@ -67,7 +67,7 @@ bower install
 To start a local server go to project folder and run the command:
 
 ```
-sudo gulp serve
+ gulp serve
 ```
 
 Access [localhost:3000](localhost:3000) 
@@ -77,7 +77,7 @@ Access [localhost:3000](localhost:3000)
 This project has a e2e test, you can run the test with this command:
 
 ```
-sudo gulp test
+ gulp test
 ```
 
 ##Building
@@ -85,6 +85,6 @@ sudo gulp test
 To build a server's deploy version, just run the above code and the deploy version will be available on /dist folder.
 
 ```
-sudo gulp build
+ gulp build
 ```
 
